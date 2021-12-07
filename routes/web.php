@@ -17,10 +17,6 @@ Route::get('/', function () {
     return redirect(route('home'));
 });
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
-
 Route::middleware('guest')
     ->group(function() {
         Route::get('/login', [App\Http\Controllers\UsersController::class, 'showForm'])->name('getLogin');
@@ -29,4 +25,13 @@ Route::middleware('guest')
         Route::post('/register', [App\Http\Controllers\UsersController::class, 'register'])->name('register');
     });
 
-Route::post('/logout', 'App\Http\Controllers\UsersController@logout')->middleware('auth')->name('logout');
+Route::middleware('auth')
+    ->group(function() {
+        Route::get('/home', function() {
+            return view('home');
+        })->name('home');
+
+        Route::post('/logout', 'App\Http\Controllers\UsersController@logout')->name('logout');
+    });
+
+Route::resource('/posts', 'App\Http\Controllers\PostsController');

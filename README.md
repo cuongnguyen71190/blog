@@ -4,12 +4,12 @@ A simple blog platform, that allows registered users could CRUD their posts and 
 
 ## Core features
 
-- [ ] Everyone could see list of posts and check their detail
-- [ ] People could register for new account and login/logout to the system
-- [ ] Registered users could CRUD their posts.
-- [ ] Posts’ body understand markdown syntax and could render properly
-- [ ] Admin could see a list of created posts
-- [ ] Admin could publish or unpublish created posts
+- [x] Everyone could see list of posts and check their detail
+- [x] People could register for new account and login/logout to the system
+- [x] Registered users could CRUD their posts.
+- [x] Posts’ body understand markdown syntax and could render properly
+- [x] Admin could see a list of created posts
+- [x] Admin could publish or unpublish created posts
 
 
 ## Optinal features
