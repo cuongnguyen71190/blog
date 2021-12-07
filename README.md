@@ -13,10 +13,10 @@ A simple blog platform, that allows registered users could CRUD their posts and 
 
 
 ## Optinal features
-- [ ] Only published posts would be displayed in the public listing page
-- [ ] Admin could see highlighting unpublished posts in list of all posts
-- [ ] Admin could filter/order posts by date or status
-- [ ] Admin could schedule post publishing. E.g I want to publish this post automatically tomorrow 9AM
+- [x] Only published posts would be displayed in the public listing page
+- [x] Admin could see highlighting unpublished posts in list of all posts
+- [x] Admin could filter/order posts by date or status
+- [x] Admin could schedule post publishing. E.g I want to publish this post automatically tomorrow 9AM
 
 ## Very Very Very Optional features
 - [ ] 100% Unit Tested

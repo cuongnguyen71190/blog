@@ -10,6 +10,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/app.css')  }}">
     @yield('stylesheet')
 </head>
@@ -19,6 +20,11 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="{{ url('/') }}">Home</a>
             <a class="navbar-brand" href="{{ url('/posts') }}">Post</a>
+            @auth
+                @if(auth()->user()->isAdmin())
+                    <a class="navbar-brand" href="{{ url('/filter') }}">Filter</a>
+                @endif
+            @endauth
         </div>
 
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -58,6 +64,7 @@
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 <script src="{{ mix('js/app.js')  }}"></script>
 @stack('afterScripts')
 </body>

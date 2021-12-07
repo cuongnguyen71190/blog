@@ -35,3 +35,5 @@ Route::middleware('auth')
     });
 
 Route::resource('/posts', 'App\Http\Controllers\PostsController');
+
+Route::get('/filter', [App\Http\Controllers\FilterController::class, 'index'])->middleware('admin')->name('filter');
