@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('home'));
 });
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
+Route::middleware('guest')
+    ->group(function() {
+        Route::get('/login', [App\Http\Controllers\UsersController::class, 'showForm'])->name('getLogin');
+        Route::post('/login', [App\Http\Controllers\UsersController::class, 'login'])->name('login');
+        Route::get('/register', [App\Http\Controllers\UsersController::class, 'showRegisterForm'])->name('getRegister');
+        Route::post('/register', [App\Http\Controllers\UsersController::class, 'register'])->name('register');
+    });
+
+Route::post('/logout', 'App\Http\Controllers\UsersController@logout')->middleware('auth')->name('logout');
